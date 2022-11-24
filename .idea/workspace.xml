@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="All class's Vessel's Creation and Vessel Interface Creation">
-      <change afterPath="$PROJECT_DIR$/src/AeroCarrier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Caravel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Corvettes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Submarine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TorpedoBoat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessel.java" afterDir="false" />
+    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Code correction's">
+      <change beforePath="$PROJECT_DIR$/src/Vessels/AeroCarrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessels/AeroCarrier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vessels/Caravel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessels/Caravel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vessels/Corvettes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessels/Corvettes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vessels/Submarine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessels/Submarine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vessels/TorpedoBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessels/TorpedoBoat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vessels/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessels/Vessel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +64,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669298597672</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Vessel's implementation">
+      <created>1669299781757</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669299781757</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Code correction's">
+      <created>1669300015445</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669300015445</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -84,6 +96,8 @@
     <MESSAGE value="Print all types of board" />
     <MESSAGE value="Player Class Creation" />
     <MESSAGE value="All class's Vessel's Creation and Vessel Interface Creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="All class's Vessel's Creation and Vessel Interface Creation" />
+    <MESSAGE value="Vessel's implementation" />
+    <MESSAGE value="Code correction's" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code correction's" />
   </component>
 </project>
