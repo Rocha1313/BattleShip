@@ -2,6 +2,7 @@ package Game;
 
 import Vessels.*;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Player {
@@ -13,6 +14,7 @@ public class Player {
     private ArrayList<Vessel> vessels = new ArrayList<>();
     private String[][] ownBoard = new String[10][10];
     private String[][] tacticalBoard = new String[10][10];
+    private final String[] topCoordinates = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
 
     //Constructor's
     public Player(String color, String name){
@@ -41,8 +43,57 @@ public class Player {
     }
 
     //Method's
-    private void setVessel(Scanner scanner){
+    private void setVessel(Scanner scanner, Vessel vessel){
+        String position;
+        Board.printPlayerBoard(this.ownBoard);
+        do {
+            System.out.println("Where do you want to put the vessel?");
+            position = scanner.next();
+        }while (!checkPositionInput(position));
+    }
 
+    //Check if input is valid
+    private boolean checkPositionInput(String position){
+        boolean checked = false;
+
+        //Check if input position is null
+        if (Objects.isNull(position)){
+            System.out.println("\nNothing was typed\n");
+            return false;
+        }
+
+        //Check if input position size is more than 2
+        if (position.length() > 2){
+            System.out.println("\nNot Valid Position\n");
+            return false;
+        }
+
+        //Separates in two the coordinates
+        String[] coordinates = new String[]{position.substring(0,1), position.substring(1)};
+
+        //Check if the second letter is a number
+        try {
+            int i = Integer.parseInt(coordinates[1]);
+        }catch (NumberFormatException nfe) {
+            System.out.println("\nNot Valid Number\n");
+            return false;
+        }
+
+        //Check if first letter is a valid coordinate letter
+        for (String t : topCoordinates){
+            if (coordinates[0].equals(t)){
+                checked = true;
+                break;
+            }
+        }
+
+        //Check if the second letter that is a number is between 1 and 10 and return true if the checker on Top is true too
+        if (checked && ((Integer.parseInt(coordinates[1]) < 1) && (Integer.parseInt(coordinates[1]) > 10))){
+            System.out.println("\nNot Valid letter\n");
+            return true;
+        }
+
+        return false;
     }
 
     //Getter's

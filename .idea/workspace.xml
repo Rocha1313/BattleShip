@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Start and Quit Method's creation inside of Match class ----- FIX">
+    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Board Class dumb thing correction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669303982201</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Board Class dumb thing correction">
+      <created>1669304457908</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669304457908</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,6 +149,7 @@
     <MESSAGE value="Polymorphism and encapsulation adapts" />
     <MESSAGE value="Start and Quit Method's creation inside of Match class" />
     <MESSAGE value="Start and Quit Method's creation inside of Match class ----- FIX" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start and Quit Method's creation inside of Match class ----- FIX" />
+    <MESSAGE value="Board Class dumb thing correction" />
+    <option name="LAST_COMMIT_MESSAGE" value="Board Class dumb thing correction" />
   </component>
 </project>
