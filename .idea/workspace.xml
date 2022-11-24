@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Print all types of board">
-      <change afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="All class's Vessel's Creation and Vessel Interface Creation">
+      <change afterPath="$PROJECT_DIR$/src/AeroCarrier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Caravel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Corvettes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Submarine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TorpedoBoat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +59,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669297718761</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Player Class Creation">
+      <created>1669298597672</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669298597672</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -69,6 +82,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Print all types of board" />
-    <option name="LAST_COMMIT_MESSAGE" value="Print all types of board" />
+    <MESSAGE value="Player Class Creation" />
+    <MESSAGE value="All class's Vessel's Creation and Vessel Interface Creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="All class's Vessel's Creation and Vessel Interface Creation" />
   </component>
 </project>

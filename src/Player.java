@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+
 public class Player {
 
     //Statement's
     private String color;
     private String name;
     private int victories;
-    private Vessel vessels;
+    private ArrayList<Vessel> vessels;
     private String[][] ownBoard = new String[10][10];
     private String[][] tacticalBoard = new String[10][10];
 
