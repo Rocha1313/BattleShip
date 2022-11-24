@@ -86,13 +86,18 @@ public class Player {
                 break;
             }
         }
+        //Print the error if is false
+        if(!checked){
+            System.out.println("\nNot Valid letter\n");
+            return false;
+        }
 
         //Check if the second letter that is a number is between 1 and 10 and return true if the checker on Top is true too
-        if (checked && ((Integer.parseInt(coordinates[1]) < 1) && (Integer.parseInt(coordinates[1]) > 10))){
-            System.out.println("\nNot Valid letter\n");
+        if ((Integer.parseInt(coordinates[1]) < 1) && (Integer.parseInt(coordinates[1]) > 10))){
             return true;
         }
 
+        System.out.println("\nNot Valid Number\n");
         return false;
     }
 
