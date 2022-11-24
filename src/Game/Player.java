@@ -1,3 +1,5 @@
+package Game;
+
 import Vessels.*;
 import java.util.ArrayList;
 
@@ -13,7 +15,7 @@ public class Player {
 
     //Constructor's
     public Player(String color, String name){
-        //Set Board's to an empty space
+        //Set Game.Board's to an empty space
         for (int i = 0; i < ownBoard.length; i++){
             for (int f = 0; f < ownBoard[i].length; f++){
                 ownBoard[i][f] = " ";

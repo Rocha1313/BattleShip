@@ -1,6 +1,8 @@
-public class Board {
+package Game;
 
-    public static void printPlayerBoard(String[][] playerBoard){
+class Board {
+
+    static void printPlayerBoard(String[][] playerBoard){
         System.out.println();
         System.out.print("      A   B   C   D   E   F   G   H   I   J \n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
@@ -27,7 +29,7 @@ public class Board {
         System.out.println();
     }
 
-    public static void printTacticalBoard(String[][] tacticalBoard){
+    static void printTacticalBoard(String[][] tacticalBoard){
         System.out.println();
         System.out.print("      A   B   C   D   E   F   G   H   I   J \n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
@@ -54,7 +56,7 @@ public class Board {
         System.out.println();
     }
 
-    public static void printAllBoards(String[][] playerBoard, String[][] tacticalBoard){
+    static void printAllBoards(String[][] playerBoard, String[][] tacticalBoard){
         System.out.println();
         System.out.print("      A   B   C   D   E   F   G   H   I   J                         A   B   C   D   E   F   G   H   I   J \n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|                     |---|---|---|---|---|---|---|---|---|---|\n");
