@@ -1,5 +1,6 @@
-public class Submarine implements Vessel{
+package Vessels;
 
+public class TorpedoBoat implements Vessel{
     private int vesselSize;
 
     @Override

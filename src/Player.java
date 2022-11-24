@@ -1,3 +1,4 @@
+import Vessels.*;
 import java.util.ArrayList;
 
 public class Player {
@@ -33,6 +34,10 @@ public class Player {
         return victories;
     }
 
+    public ArrayList<Vessel> getVessels() {
+        return vessels;
+    }
+
     public String[][] getOwnBoard() {
         return ownBoard;
     }
@@ -52,6 +57,10 @@ public class Player {
 
     public void setVictories(int victories) {
         this.victories = victories;
+    }
+
+    public void setVessels(ArrayList<Vessel> vessels) {
+        this.vessels = vessels;
     }
 
     public void setOwnBoard(String[][] ownBoard) {

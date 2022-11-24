@@ -1,4 +1,6 @@
-public class Corvettes implements Vessel{
+package Vessels;
+
+public class AeroCarrier implements Vessel{
     private int vesselSize;
 
     @Override

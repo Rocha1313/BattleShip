@@ -1,4 +1,6 @@
-public class Caravel implements Vessel{
+package Vessels;
+
+public class Corvettes implements Vessel{
     private int vesselSize;
 
     @Override
