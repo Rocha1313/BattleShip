@@ -13,10 +13,19 @@ public class Player {
 
     //Constructor's
     public Player(String color, String name){
+        //Set Board's to an empty space
+        for (int i = 0; i < ownBoard.length; i++){
+            for (int f = 0; f < ownBoard[i].length; f++){
+                ownBoard[i][f] = " ";
+                tacticalBoard[i][f] = " ";
+            }
+        }
+
         this.color = color;
         this.name = name;
         this.victories = 0;
 
+        //Set the vessel's of player
         vessels.add(new AeroCarrier());
         vessels.add(new Corvettes());
         vessels.add(new TorpedoBoat());
