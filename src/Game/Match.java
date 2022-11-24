@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Match {
 
     public void start(){
-        Scanner sc = new Scanner();
+        Scanner sc = new Scanner(System.in);
         do{
 
 
