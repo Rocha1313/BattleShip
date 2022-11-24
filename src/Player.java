@@ -7,7 +7,7 @@ public class Player {
     private String color;
     private String name;
     private int victories;
-    private ArrayList<Vessel> vessels;
+    private ArrayList<Vessel> vessels = new ArrayList<>();
     private String[][] ownBoard = new String[10][10];
     private String[][] tacticalBoard = new String[10][10];
 
@@ -16,6 +16,16 @@ public class Player {
         this.color = color;
         this.name = name;
         this.victories = 0;
+
+        vessels.add(new AeroCarrier());
+        vessels.add(new Corvettes());
+        vessels.add(new TorpedoBoat());
+        for (int i = 0; i < 2; i++){
+            vessels.add(new Caravel());
+        }
+        for (int i = 0; i < 3; i++){
+            vessels.add(new Submarine());
+        }
     }
 
     //Method's
