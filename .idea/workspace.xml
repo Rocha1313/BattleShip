@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Polymorphism and encapsulation adapts">
-      <change beforePath="$PROJECT_DIR$/src/Game/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Match.java" afterDir="false" />
+    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Start and Quit Method's creation inside of Match class ----- FIX">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +103,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669303270629</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Start and Quit Method's creation inside of Match class">
+      <created>1669303945257</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669303945257</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Start and Quit Method's creation inside of Match class ----- FIX">
+      <created>1669303982201</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669303982201</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -126,6 +141,8 @@
     <MESSAGE value="Set Vessel's of Player in Constructor" />
     <MESSAGE value="Set Board's to an empty space" />
     <MESSAGE value="Polymorphism and encapsulation adapts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Polymorphism and encapsulation adapts" />
+    <MESSAGE value="Start and Quit Method's creation inside of Match class" />
+    <MESSAGE value="Start and Quit Method's creation inside of Match class ----- FIX" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start and Quit Method's creation inside of Match class ----- FIX" />
   </component>
 </project>

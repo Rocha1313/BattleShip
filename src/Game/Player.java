@@ -2,6 +2,7 @@ package Game;
 
 import Vessels.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player {
 
@@ -40,7 +41,9 @@ public class Player {
     }
 
     //Method's
+    private void setVessel(Scanner scanner){
 
+    }
 
     //Getter's
     public String getColor() {
