@@ -54,8 +54,9 @@ public class Player {
         Board.printPlayerBoard(this.ownBoard);
 
         do {
-            System.out.println("Where do you want to put the vessel?");
+            System.out.println("\nWhere do you want to put the vessel?\n");
             position = scanner.next();
+
             while(checkInputDirection) {
                 System.out.println("\nWhich direction do you want him to look?");
                 System.out.println("\n 1 - RIGHT\n 2 - DOWN\n\n");
@@ -75,6 +76,19 @@ public class Player {
             }
             checkInputDirection = true;
         }while (!checkPositionIsFree(position, vessel, direction));
+
+        int[] coordinatesIndex = coordinatesIndex(position);
+
+        if (direction.equals("RIGHT")){
+            for (int i = 0; i <= vessel.getVesselSize(); i++){
+                ownBoard[coordinatesIndex[0]][coordinatesIndex[1] + i] = "O";
+            }
+            return;
+        }
+
+        for (int i = 0; i <= vessel.getVesselSize(); i++){
+            ownBoard[coordinatesIndex[0] + i][coordinatesIndex[1]] = "O";
+        }
     }
 
     //Give us the index's of coordinates
@@ -106,7 +120,7 @@ public class Player {
             return null;
         }
 
-        return new int[]{topIndex, leftIndex};
+        return new int[]{leftIndex, topIndex};
     }
 
     //Check if position is free
@@ -137,7 +151,8 @@ public class Player {
 
         switch (direction){
             case "RIGHT" -> {
-                indexVerifier = coordinatesIndex[0] + (vessel.getVesselSize() - 1);
+                indexVerifier = coordinatesIndex[1] + vessel.getVesselSize();
+                currentPosition = ownBoard[coordinatesIndex[0]][coordinatesIndex[1]];
 
                 if (indexVerifier > 9){
                     System.out.println("The vessel is too large\n");
@@ -145,26 +160,29 @@ public class Player {
                 }
 
                 for (int i = 1; i <= vessel.getVesselSize(); i++){
-                    currentPosition = ownBoard[coordinatesIndex[0] + i][coordinatesIndex[1]];
+
                     if (!currentPosition.equals(" ")){
-                        System.out.println("The vessel is too large\n");
+                        System.out.println("You tried put a vessel over another vessel, that's not possible, sorry :(\n");
                         return false;
                     }
+                    currentPosition = ownBoard[coordinatesIndex[0]][coordinatesIndex[1] + i];
                 }
             }
             case "DOWN" -> {
-                indexVerifier = coordinatesIndex[1] - (vessel.getVesselSize() - 1);
+                indexVerifier = coordinatesIndex[0] + vessel.getVesselSize();
+                currentPosition = ownBoard[coordinatesIndex[0]][coordinatesIndex[1]];
 
                 if (indexVerifier > 9){
                     System.out.println("The vessel is too large\n");
                     return false;
                 }
+
                 for (int i = 1; i <= vessel.getVesselSize(); i++){
-                    currentPosition = ownBoard[coordinatesIndex[0]][coordinatesIndex[1] + i];
                     if (!currentPosition.equals(" ")){
-                        System.out.println("The vessel is too large\n");
+                        System.out.println("You tried put a vessel over another vessel, that's not possible, sorry :(\n");
                         return false;
                     }
+                    currentPosition = ownBoard[coordinatesIndex[0] + i][coordinatesIndex[1]];
                 }
 
             }
@@ -191,7 +209,7 @@ public class Player {
         }
 
         //Check if input position size is more than 2
-        if (position.length() > 2 && coordinatesIndex[1] == 10){
+        if (position.length() > 2 && coordinatesIndex[1] > 9){
             System.out.println("\nNot Valid Input\n");
             return true;
         }

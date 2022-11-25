@@ -10,7 +10,9 @@ public class Match {
             Player player = new Player("sss", "ssss");
             Board.printPlayerBoard(player.getOwnBoard());
             player.setVessel(sc, player.getVessels().get(2));
-
+            Board.printPlayerBoard(player.getOwnBoard());
+            player.setVessel(sc, player.getVessels().get(2));
+            Board.printPlayerBoard(player.getOwnBoard());
         }while (quit(sc));
     }
 

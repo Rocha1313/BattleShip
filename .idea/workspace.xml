@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Creation of method that return the exact index's of coordinates and the method that check if position is free and give us an input of intended direction">
+    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Creation of method that check if the size of vessel is appropriated for setting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669374038993</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Creation of method that check if the size of vessel is appropriated for setting">
+      <created>1669392561529</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1669392561529</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,6 +189,7 @@
     <MESSAGE value="Method creation that check if input is valid" />
     <MESSAGE value="Method creation that check if input is valid --- FIX" />
     <MESSAGE value="Creation of method that return the exact index's of coordinates and the method that check if position is free and give us an input of intended direction" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creation of method that return the exact index's of coordinates and the method that check if position is free and give us an input of intended direction" />
+    <MESSAGE value="Creation of method that check if the size of vessel is appropriated for setting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creation of method that check if the size of vessel is appropriated for setting" />
   </component>
 </project>
