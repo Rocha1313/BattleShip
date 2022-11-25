@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Method creation that check if input is valid">
+    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Method creation that check if input is valid --- FIX">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669308294851</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Method creation that check if input is valid --- FIX">
+      <created>1669308559640</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1669308559640</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -157,6 +167,7 @@
     <MESSAGE value="Start and Quit Method's creation inside of Match class ----- FIX" />
     <MESSAGE value="Board Class dumb thing correction" />
     <MESSAGE value="Method creation that check if input is valid" />
-    <option name="LAST_COMMIT_MESSAGE" value="Method creation that check if input is valid" />
+    <MESSAGE value="Method creation that check if input is valid --- FIX" />
+    <option name="LAST_COMMIT_MESSAGE" value="Method creation that check if input is valid --- FIX" />
   </component>
 </project>

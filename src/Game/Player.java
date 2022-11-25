@@ -93,7 +93,7 @@ public class Player {
         }
 
         //Check if the second letter that is a number is between 1 and 10 and return true if the checker on Top is true too
-        if ((Integer.parseInt(coordinates[1]) < 1) && (Integer.parseInt(coordinates[1]) > 10))){
+        if ((Integer.parseInt(coordinates[1]) < 1) && (Integer.parseInt(coordinates[1]) > 10)){
             return true;
         }
 

@@ -4,16 +4,17 @@ import java.util.Scanner;
 
 public class Match {
 
-    public void start(){
+    public static void start(){
         Scanner sc = new Scanner(System.in);
         do{
-
+            Player player = new Player("sss", "ssss");
+            Board.printPlayerBoard(player.getOwnBoard());
 
 
         }while (quit(sc));
     }
 
-    private boolean quit(Scanner scanner){
+    private static boolean quit(Scanner scanner){
         String input;
         do {
             System.out.println();
