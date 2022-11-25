@@ -1,8 +1,9 @@
 package Game;
 
 import Vessels.*;
+
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -57,23 +58,15 @@ public class Player {
             position = scanner.next();
             while(checkInputDirection) {
                 System.out.println("\nWhich direction do you want him to look?");
-                System.out.println("\n 1 - UP\n 2 - RIGHT\n 3 - DOWN\n 4 - LEFT\n\n");
+                System.out.println("\n 1 - RIGHT\n 2 - DOWN\n\n");
                 inputDirection = scanner.next();
                 switch (inputDirection) {
                     case "1" -> {
-                        direction = "UP";
-                        checkInputDirection = false;
-                    }
-                    case "2" -> {
                         direction = "RIGHT";
                         checkInputDirection = false;
                     }
-                    case "3" -> {
+                    case "2" -> {
                         direction = "DOWN";
-                        checkInputDirection = false;
-                    }
-                    case "4" -> {
-                        direction = "LEFT";
                         checkInputDirection = false;
                     }
                     default -> {
@@ -86,13 +79,18 @@ public class Player {
 
     //Give us the index's of coordinates
     private int[] coordinatesIndex(String position){
-        int topIndex = 0;
-
+        int topIndex = -1;
+        int leftIndex;
         //Split the string to give as each coordinate
         String[] coordinates = new String[]{position.substring(0,1), position.substring(1)};
 
-        //Set the exact coordinate of left Index
-        int leftIndex = (Integer.parseInt(coordinates[1]) - 1);
+        //Set the exact coordinate of left Index and check if is valid
+        try{
+            leftIndex = (Integer.parseInt(coordinates[1]) - 1);
+        }catch (NumberFormatException nfe) {
+            System.out.println("\nNot Valid Input\n");
+            return null;
+        }
 
         //Set the exact coordinate of top Index
         for (int i = 0; i < topCoordinates.length; i++){
@@ -102,11 +100,20 @@ public class Player {
             }
         }
 
+        //Check if top index is invalid
+        if (topIndex == -1){
+            System.out.println("\nNot Valid Input\n");
+            return null;
+        }
+
         return new int[]{topIndex, leftIndex};
     }
 
     //Check if position is free
     private boolean checkPositionIsFree(String position, Vessel vessel, String direction){
+        String currentPosition;
+        int indexVerifier;
+
         //Check the input
         if (checkPositionInput(position)){
             return false;
@@ -115,12 +122,53 @@ public class Player {
         //Store the exact coordinates to be used later
         int[] coordinatesIndex = coordinatesIndex(position);
 
+        //Check if is null
+        if(Objects.isNull(coordinatesIndex)) {
+            return false;
+        }
+
         //Check if the exact coordinate is blocked
         if (!ownBoard[coordinatesIndex[0]][coordinatesIndex[1]].equals(" ")){
             System.out.println("The position is blocked!!\nChoose another one!");
             return false;
         }
 
+
+
+        switch (direction){
+            case "RIGHT" -> {
+                indexVerifier = coordinatesIndex[0] + (vessel.getVesselSize() - 1);
+
+                if (indexVerifier > 9){
+                    System.out.println("The vessel is too large\n");
+                    return false;
+                }
+
+                for (int i = 1; i <= vessel.getVesselSize(); i++){
+                    currentPosition = ownBoard[coordinatesIndex[0] + i][coordinatesIndex[1]];
+                    if (!currentPosition.equals(" ")){
+                        System.out.println("The vessel is too large\n");
+                        return false;
+                    }
+                }
+            }
+            case "DOWN" -> {
+                indexVerifier = coordinatesIndex[1] - (vessel.getVesselSize() - 1);
+
+                if (indexVerifier > 9){
+                    System.out.println("The vessel is too large\n");
+                    return false;
+                }
+                for (int i = 1; i <= vessel.getVesselSize(); i++){
+                    currentPosition = ownBoard[coordinatesIndex[0]][coordinatesIndex[1] + i];
+                    if (!currentPosition.equals(" ")){
+                        System.out.println("The vessel is too large\n");
+                        return false;
+                    }
+                }
+
+            }
+        }
         return true;
     };
 
@@ -134,8 +182,16 @@ public class Player {
             return true;
         }
 
+        //Store the exact coordinates to be used later
+        int[] coordinatesIndex = coordinatesIndex(position);
+
+        //Check if is null
+        if(Objects.isNull(coordinatesIndex)) {
+            return true;
+        }
+
         //Check if input position size is more than 2
-        if (position.length() > 2){
+        if (position.length() > 2 && coordinatesIndex[1] == 10){
             System.out.println("\nNot Valid Input\n");
             return true;
         }
