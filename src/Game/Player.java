@@ -2,6 +2,7 @@ package Game;
 
 import Vessels.*;
 import java.util.ArrayList;
+import java.util.Dictionary;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -43,14 +44,85 @@ public class Player {
     }
 
     //Method's
-    private void setVessel(Scanner scanner, Vessel vessel){
+    public void setVessel(Scanner scanner, Vessel vessel){
+        boolean checkInputDirection = true;
         String position;
+        String inputDirection;
+        String direction = "";
+
         Board.printPlayerBoard(this.ownBoard);
+
         do {
             System.out.println("Where do you want to put the vessel?");
             position = scanner.next();
-        }while (!checkPositionInput(position));
+            while(checkInputDirection) {
+                System.out.println("\nWhich direction do you want him to look?");
+                System.out.println("\n 1 - UP\n 2 - RIGHT\n 3 - DOWN\n 4 - LEFT\n\n");
+                inputDirection = scanner.next();
+                switch (inputDirection) {
+                    case "1" -> {
+                        direction = "UP";
+                        checkInputDirection = false;
+                    }
+                    case "2" -> {
+                        direction = "RIGHT";
+                        checkInputDirection = false;
+                    }
+                    case "3" -> {
+                        direction = "DOWN";
+                        checkInputDirection = false;
+                    }
+                    case "4" -> {
+                        direction = "LEFT";
+                        checkInputDirection = false;
+                    }
+                    default -> {
+                    }
+                }
+            }
+            checkInputDirection = true;
+        }while (!checkPositionIsFree(position, vessel, direction));
     }
+
+    //Give us the index's of coordinates
+    private int[] coordinatesIndex(String position){
+        int topIndex = 0;
+
+        //Split the string to give as each coordinate
+        String[] coordinates = new String[]{position.substring(0,1), position.substring(1)};
+
+        //Set the exact coordinate of left Index
+        int leftIndex = (Integer.parseInt(coordinates[1]) - 1);
+
+        //Set the exact coordinate of top Index
+        for (int i = 0; i < topCoordinates.length; i++){
+            if (topCoordinates[i].equals(coordinates[0].toUpperCase())){
+                topIndex = i;
+                break;
+            }
+        }
+
+        return new int[]{topIndex, leftIndex};
+    }
+
+    //Check if position is free
+    private boolean checkPositionIsFree(String position, Vessel vessel, String direction){
+        //Check the input
+        if (checkPositionInput(position)){
+            return false;
+        }
+
+        //Store the exact coordinates to be used later
+        int[] coordinatesIndex = coordinatesIndex(position);
+
+        //Check if the exact coordinate is blocked
+        if (!ownBoard[coordinatesIndex[0]][coordinatesIndex[1]].equals(" ")){
+            System.out.println("The position is blocked!!\nChoose another one!");
+            return false;
+        }
+
+        return true;
+    };
 
     //Check if input is valid
     private boolean checkPositionInput(String position){
@@ -59,13 +131,13 @@ public class Player {
         //Check if input position is null
         if (Objects.isNull(position)){
             System.out.println("\nNothing was typed\n");
-            return false;
+            return true;
         }
 
         //Check if input position size is more than 2
         if (position.length() > 2){
-            System.out.println("\nNot Valid Position\n");
-            return false;
+            System.out.println("\nNot Valid Input\n");
+            return true;
         }
 
         //Separates in two the coordinates
@@ -75,8 +147,8 @@ public class Player {
         try {
             int i = Integer.parseInt(coordinates[1]);
         }catch (NumberFormatException nfe) {
-            System.out.println("\nNot Valid Number\n");
-            return false;
+            System.out.println("\nNot Valid Input\n");
+            return true;
         }
 
         //Check if first letter is a valid coordinate letter
@@ -88,17 +160,17 @@ public class Player {
         }
         //Print the error if is false
         if(!checked){
-            System.out.println("\nNot Valid letter\n");
-            return false;
-        }
-
-        //Check if the second letter that is a number is between 1 and 10 and return true if the checker on Top is true too
-        if ((Integer.parseInt(coordinates[1]) < 1) && (Integer.parseInt(coordinates[1]) > 10)){
+            System.out.println("\nNot Valid Input\n");
             return true;
         }
 
-        System.out.println("\nNot Valid Number\n");
-        return false;
+        //Check if the second letter that is a number is between 1 and 10 and return true if the checker on Top is true too
+        if ((Integer.parseInt(coordinates[1]) >= 1) && (Integer.parseInt(coordinates[1]) <= 10)){
+            return false;
+        }
+
+        System.out.println("\nNot Valid Input\n");
+        return true;
     }
 
     //Getter's
