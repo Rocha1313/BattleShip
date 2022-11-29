@@ -2,8 +2,8 @@ package Game;
 
 import Vessels.*;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -45,6 +45,7 @@ public class Player {
     }
 
     //Method's
+    //Set vessel
     public void setVessel(Scanner scanner, Vessel vessel){
         boolean checkInputDirection = true;
         String position;
@@ -80,15 +81,60 @@ public class Player {
         int[] coordinatesIndex = coordinatesIndex(position);
 
         if (direction.equals("RIGHT")){
-            for (int i = 0; i <= vessel.getVesselSize(); i++){
+            for (int i = 0; i < vessel.getVesselSize(); i++){
                 ownBoard[coordinatesIndex[0]][coordinatesIndex[1] + i] = "O";
+                vessel.setPositions(new int[]{coordinatesIndex[0],coordinatesIndex[1] + i});
             }
             return;
         }
 
-        for (int i = 0; i <= vessel.getVesselSize(); i++){
+        for (int i = 0; i < vessel.getVesselSize(); i++){
             ownBoard[coordinatesIndex[0] + i][coordinatesIndex[1]] = "O";
+            vessel.setPositions(new int[]{coordinatesIndex[0] + i,coordinatesIndex[1]});
         }
+    }
+
+    //Attack
+    public void attackEnemy(Scanner scanner){
+        int[] coordinates = new int[2];
+        do {
+            System.out.println("\nWhere do you want attack?\n");
+            coordinates = coordinatesIndex(scanner.next());
+
+
+        } while (Objects.isNull(coordinates));
+
+
+
+        tacticalBoard[coordinates[0]][coordinates[1]] = "X";
+    }
+
+    //Check Attack Input
+    private boolean checkAttackPosition(int[] coordinates, String[][] enemyBoard, Vessel[][] vesselsPosition){
+
+        if(Objects.isNull(coordinates)){
+            return true;
+        }
+
+        String position = enemyBoard[coordinates[0]][coordinates[1]];
+
+        if(position.equals("X") || position.equals("W")){
+            System.out.println("\nYou already played at that position!!!\n");
+            return true;
+        }
+
+        if (position.equals(" ")){
+            System.out.println("\nYOU MISS\n");
+            tacticalBoard[coordinates[0]][coordinates[1]] = "W";
+            enemyBoard[coordinates[0]][coordinates[1]] = "W";
+            return false;
+        }
+
+        System.out.println("\nHit\n");
+        tacticalBoard[coordinates[0]][coordinates[1]] = "X";
+        enemyBoard[coordinates[0]][coordinates[1]] = "X";
+        return false;
+
     }
 
     //Give us the index's of coordinates

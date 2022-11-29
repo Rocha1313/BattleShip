@@ -13,6 +13,9 @@ public class Match {
             Board.printPlayerBoard(player.getOwnBoard());
             player.setVessel(sc, player.getVessels().get(2));
             Board.printPlayerBoard(player.getOwnBoard());
+//            Board.printPlayerBoard(player.getTacticalBoard());
+//            player.attackEnemy(sc);
+//            Board.printPlayerBoard(player.getTacticalBoard());
         }while (quit(sc));
     }
 
