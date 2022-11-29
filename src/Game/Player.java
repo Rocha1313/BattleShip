@@ -109,8 +109,21 @@ public class Player {
         tacticalBoard[coordinates[0]][coordinates[1]] = "X";
     }
 
+    //Search for attacked vessel
+    private Vessel searchAttackedEnemyVessel(int[] coordinates, ArrayList<Vessel> vessels){
+        for (Vessel v : vessels){
+            for (int[] p : v.getPositions()){
+                if (p == coordinates){
+                    return v;
+                }
+            }
+        }
+
+        return null;
+    }
+
     //Check Attack Input
-    private boolean checkAttackPosition(int[] coordinates, String[][] enemyBoard, Vessel[][] vesselsPosition){
+    private boolean checkAttackPosition(int[] coordinates, String[][] enemyBoard, ArrayList<Vessel> vessels){
 
         if(Objects.isNull(coordinates)){
             return true;
