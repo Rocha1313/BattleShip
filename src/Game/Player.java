@@ -95,25 +95,20 @@ public class Player {
     }
 
     //Attack
-    public void attackEnemy(Scanner scanner){
-        int[] coordinates = new int[2];
+    public void attackEnemy(Scanner scanner, String[][] enemyBoard, ArrayList<Vessel> vessels){
+        int[] coordinates;
         do {
             System.out.println("\nWhere do you want attack?\n");
             coordinates = coordinatesIndex(scanner.next());
 
-
-        } while (Objects.isNull(coordinates));
-
-
-
-        tacticalBoard[coordinates[0]][coordinates[1]] = "X";
+        } while (checkAttackPosition(coordinates, enemyBoard, vessels));
     }
 
     //Search for attacked vessel
     private Vessel searchAttackedEnemyVessel(int[] coordinates, ArrayList<Vessel> vessels){
         for (Vessel v : vessels){
             for (int[] p : v.getPositions()){
-                if (p == coordinates){
+                if (Arrays.equals(p,coordinates)){
                     return v;
                 }
             }
@@ -143,6 +138,13 @@ public class Player {
             return false;
         }
 
+
+        Vessel vessel = searchAttackedEnemyVessel(coordinates, vessels);
+        if (Objects.isNull(vessel)) {
+            return true;
+        }
+
+        vessel.getHit();
         System.out.println("\nHit\n");
         tacticalBoard[coordinates[0]][coordinates[1]] = "X";
         enemyBoard[coordinates[0]][coordinates[1]] = "X";

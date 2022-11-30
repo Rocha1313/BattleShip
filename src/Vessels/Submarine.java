@@ -15,6 +15,11 @@ public class Submarine implements Vessel{
     }
 
     @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
     public void getHit() {
         this.vesselSize--;
     }
