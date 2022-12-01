@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Method to Search for attacked vessel">
+    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Vessels fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vessels/AeroCarrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessels/AeroCarrier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vessels/Caravel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessels/Caravel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vessels/Corvettes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessels/Corvettes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vessels/Submarine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessels/Submarine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vessels/TorpedoBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessels/TorpedoBoat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vessels/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vessels/Vessel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669723212951</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Vessels fixes">
+      <created>1669818333690</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1669818333690</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,6 +222,7 @@
     <MESSAGE value="BUG THAT VESSELS DON'T STORE AT ARRAY AND OUT OF BOUND'S EXCEPTION FIXED :)" />
     <MESSAGE value="Fixes" />
     <MESSAGE value="Method to Search for attacked vessel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Method to Search for attacked vessel" />
+    <MESSAGE value="Vessels fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vessels fixes" />
   </component>
 </project>

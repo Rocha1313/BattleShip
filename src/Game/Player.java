@@ -13,6 +13,7 @@ public class Player {
     private String color;
     private String name;
     private int victories;
+    private int numberOfPieces = 19;
     private ArrayList<Vessel> vessels = new ArrayList<>();
     private String[][] ownBoard = new String[10][10];
     private String[][] tacticalBoard = new String[10][10];
@@ -95,13 +96,13 @@ public class Player {
     }
 
     //Attack
-    public void attackEnemy(Scanner scanner, String[][] enemyBoard, ArrayList<Vessel> vessels){
+    public void attackEnemy(Scanner scanner, Player enemy){
         int[] coordinates;
         do {
             System.out.println("\nWhere do you want attack?\n");
             coordinates = coordinatesIndex(scanner.next());
 
-        } while (checkAttackPosition(coordinates, enemyBoard, vessels));
+        } while (checkAttackPosition(coordinates, enemy));
     }
 
     //Search for attacked vessel
@@ -118,13 +119,13 @@ public class Player {
     }
 
     //Check Attack Input
-    private boolean checkAttackPosition(int[] coordinates, String[][] enemyBoard, ArrayList<Vessel> vessels){
+    private boolean checkAttackPosition(int[] coordinates, Player enemy){
 
         if(Objects.isNull(coordinates)){
             return true;
         }
 
-        String position = enemyBoard[coordinates[0]][coordinates[1]];
+        String position = enemy.getOwnBoard()[coordinates[0]][coordinates[1]];
 
         if(position.equals("X") || position.equals("W")){
             System.out.println("\nYou already played at that position!!!\n");
@@ -134,20 +135,21 @@ public class Player {
         if (position.equals(" ")){
             System.out.println("\nYOU MISS\n");
             tacticalBoard[coordinates[0]][coordinates[1]] = "W";
-            enemyBoard[coordinates[0]][coordinates[1]] = "W";
+            enemy.getOwnBoard()[coordinates[0]][coordinates[1]] = "W";
             return false;
         }
 
 
-        Vessel vessel = searchAttackedEnemyVessel(coordinates, vessels);
+        Vessel vessel = searchAttackedEnemyVessel(coordinates, enemy.getVessels());
         if (Objects.isNull(vessel)) {
             return true;
         }
 
+        enemy.numberOfPieces--;
         vessel.getHit();
         System.out.println("\nHit\n");
         tacticalBoard[coordinates[0]][coordinates[1]] = "X";
-        enemyBoard[coordinates[0]][coordinates[1]] = "X";
+        enemy.getOwnBoard()[coordinates[0]][coordinates[1]] = "X";
         return false;
 
     }
@@ -309,6 +311,11 @@ public class Player {
     }
 
     //Getter's
+
+    public int getNumberOfPieces() {
+        return numberOfPieces;
+    }
+
     public String getColor() {
         return color;
     }

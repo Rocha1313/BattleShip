@@ -2,7 +2,7 @@ package Vessels;
 
 public class Corvettes implements Vessel{
 
-    final String name = "Corvettes";
+    final String name = "Corvette";
     private int vesselSize;
     int[][] positions = new int[4][2];
 
