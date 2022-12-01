@@ -57,8 +57,6 @@ class Board {
         System.out.println();
     }
 
-
-
     static void printAllBoards(Player player){
         String[][] position = new String[10][10];
         String[][] attackPosition = new String[10][10];

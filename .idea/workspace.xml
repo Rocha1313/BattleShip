@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="Making the game work's and making him better looking">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4a5eb687-1f2b-4bd3-8eb8-eca8b9e3ba90" name="Changes" comment="First Working Game">
       <change beforePath="$PROJECT_DIR$/src/Game/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vessels/AeroCarrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Vessels/AeroCarrier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vessels/Caravel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Vessels/Caravel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vessels/Corvettes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Vessels/Corvettes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vessels/Submarine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Vessels/Submarine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vessels/TorpedoBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Vessels/TorpedoBoat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vessels/Vessel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Vessels/Vessel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669901931551</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="First Working Game">
+      <created>1669914046408</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1669914046408</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,6 +243,7 @@
     <MESSAGE value="Method to Search for attacked vessel" />
     <MESSAGE value="Vessels fixes" />
     <MESSAGE value="Making the game work's and making him better looking" />
-    <option name="LAST_COMMIT_MESSAGE" value="Making the game work's and making him better looking" />
+    <MESSAGE value="First Working Game" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Working Game" />
   </component>
 </project>

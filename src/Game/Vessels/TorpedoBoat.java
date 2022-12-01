@@ -1,13 +1,14 @@
-package Vessels;
+package Game.Vessels;
 
-public class AeroCarrier implements Vessel{
+public class TorpedoBoat implements Vessel{
 
-    final String name = "AeroCarrier";
+    final String name = "TorpedoBoat";
     private int vesselSize;
-    int[][] positions = new int[5][2];
 
-    public AeroCarrier(){
-        this.vesselSize = 5;
+    int[][] positions = new int[3][2];
+
+    public TorpedoBoat(){
+        this.vesselSize = 3;
         for (int[] i : positions){
             i[0] = -1;
             i[1] = -1;

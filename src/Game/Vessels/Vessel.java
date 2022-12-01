@@ -1,4 +1,4 @@
-package Vessels;
+package Game.Vessels;
 
 public interface Vessel{
     final String name = null;

@@ -1,15 +1,10 @@
 package Game;
 
-import Vessels.Vessel;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Match {
     private static int victoriesP1;
     private static int victoriesP2;
-    private static String playerOneName;
-    private static String playerTwoName;
 
     public static void start(){
         Scanner sc = new Scanner(System.in);
@@ -24,7 +19,7 @@ public class Match {
                     \\_/   \\____/\\_/ \\|/_/   \\____\\\\_/\\_\\  \\____/\\_/  \\|\\____\\  \\_/  \\|\\_/ \\|\\_/  \\|\\____\\  \\/ \s
                                                                                                               \s""");
         }
-        playerOneName = sc.next();
+        String playerOneName = sc.next();
         sc.nextLine();
         clearScreen();
         //Print player two Name Question
@@ -37,7 +32,7 @@ public class Match {
                     \\_/   \\____/\\_/ \\|/_/   \\____\\\\_/\\_\\    \\_/  \\_/  \\|\\____/  \\_/  \\|\\_/ \\|\\_/  \\|\\____\\  \\/ \s
                                                                                                                \s""");
         }
-        playerTwoName = sc.next();
+        String playerTwoName = sc.next();
         sc.nextLine();
         clearScreen();
 
@@ -210,7 +205,7 @@ public class Match {
                 "                  "+player.getName()+"                         \n");
     }
 
-    //Set all Vessels
+    //Set all Game.Vessels
     private static void setAllVessels(Scanner scanner, Player player){
         int index = 0;
 
@@ -236,12 +231,36 @@ public class Match {
         String input;
         do {
             System.out.println();
-            System.out.println("Do you wanna play again?");
-            System.out.println();
-            System.out.println(" 1 - YES");
-            System.out.println(" 0 - NO");
+            //Print the quit
+            {
+                System.out.println("""
+                         ____  ____   ___  _ ____  _       _      ____  _      _      ____    ____  _     ____ ___  _   ____  _____ ____  _  _        ____\s
+                        /  _ \\/  _ \\  \\  \\///  _ \\/ \\ /\\  / \\  /|/  _ \\/ \\  /|/ \\  /|/  _ \\  /  __\\/ \\   /  _ \\\\  \\//  /  _ \\/  __//  _ \\/ \\/ \\  /|  / _  \\
+                        | | \\|| / \\|   \\  / | / \\|| | ||  | |  ||| / \\|| |\\ ||| |\\ ||| / \\|  |  \\/|| |   | / \\| \\  /   | / \\|| |  _| / \\|| || |\\ ||  \\/ \\ |
+                        | |_/|| \\_/|   / /  | \\_/|| \\_/|  | |/\\||| |-||| | \\||| | \\||| |-||  |  __/| |_/\\| |-|| / /    | |-||| |_//| |-||| || | \\||     / /
+                        \\____/\\____/  /_/   \\____/\\____/  \\_/  \\|\\_/ \\|\\_/  \\|\\_/  \\|\\_/ \\|  \\_/   \\____/\\_/ \\|/_/     \\_/ \\|\\____\\\\_/ \\|\\_/\\_/  \\|     \\/\s
+                                                                                                                                                        \\/\s
+                                                                                                                                                          \s
+                                                                                                                                                          \s
+                                                                                                                                                          \s
+                                                                                                                                                          \s
+                         _             ___  _ _____ ____                                                                                                  \s
+                        / \\            \\  \\///  __// ___\\                                                                                                 \s
+                        | |    _____    \\  / |  \\  |    \\                                                                                                 \s
+                        | |    \\____\\   / /  |  /_ \\___ |                                                                                                 \s
+                        \\_/            /_/   \\____\\\\____/                                                                                                 \s
+                                                                                                                                                          \s
+                         ____            _      ____                                                                                                      \s
+                        /  _ \\          / \\  /|/  _ \\                                                                                                     \s
+                        | / \\|  _____   | |\\ ||| / \\|                                                                                                     \s
+                        | \\_/|  \\____\\  | | \\||| \\_/|                                                                                                     \s
+                        \\____/          \\_/  \\|\\____/                                                                                                     \s
+                                                                                                                                                          \s""");
+            }
             System.out.println();
             input = scanner.next();
+
+            //Input Verifier
         }while (!input.equals("1") && !input.equals("0"));
 
         return input.equals("1");

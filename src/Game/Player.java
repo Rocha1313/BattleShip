@@ -1,6 +1,6 @@
 package Game;
 
-import Vessels.*;
+import Game.Vessels.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -320,8 +320,8 @@ public class Player {
         return true;
     }
 
-    //Getter's
 
+    //Getter's
     public int getNumberOfPieces() {
         return numberOfPieces;
     }

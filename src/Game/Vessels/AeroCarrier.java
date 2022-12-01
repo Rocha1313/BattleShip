@@ -1,13 +1,13 @@
-package Vessels;
+package Game.Vessels;
 
-public class Submarine implements Vessel{
+public class AeroCarrier implements Vessel{
 
-    final String name = "Submarine";
+    final String name = "AeroCarrier";
     private int vesselSize;
-    int[][] positions = new int[1][2];
+    int[][] positions = new int[5][2];
 
-    public Submarine(){
-        this.vesselSize = 1;
+    public AeroCarrier(){
+        this.vesselSize = 5;
         for (int[] i : positions){
             i[0] = -1;
             i[1] = -1;
@@ -31,13 +31,17 @@ public class Submarine implements Vessel{
 
     @Override
     public void setPositions(int[] position) {
-        positions[0][0] = position[0];
-        positions[0][1] = position[1];
+        for (int i = 0; i < positions.length; i++){
+            if (positions[i][0] == -1){
+                positions[i][0] = position[0];
+                positions[i][1] = position[1];
+                return;
+            }
+        }
     }
 
     @Override
     public int[][] getPositions() {
         return this.positions;
     }
-
 }

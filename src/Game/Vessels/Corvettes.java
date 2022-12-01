@@ -1,4 +1,4 @@
-package Vessels;
+package Game.Vessels;
 
 public class Corvettes implements Vessel{
 
