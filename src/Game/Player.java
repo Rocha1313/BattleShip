@@ -10,9 +10,8 @@ import java.util.Scanner;
 public class Player {
 
     //Statement's
-    private String color;
-    private String name;
-    private int victories;
+    private final String color;
+    private final String name;
     private int numberOfPieces = 19;
     private ArrayList<Vessel> vessels = new ArrayList<>();
     private String[][] ownBoard = new String[10][10];
@@ -31,7 +30,6 @@ public class Player {
 
         this.color = color;
         this.name = name;
-        this.victories = 0;
 
         //Set the vessel's of player
         vessels.add(new AeroCarrier());
@@ -52,8 +50,6 @@ public class Player {
         String position;
         String inputDirection;
         String direction = "";
-
-        Board.printPlayerBoard(this.ownBoard);
 
         do {
             System.out.println("\nWhere do you want to put the vessel?\n");
@@ -98,10 +94,14 @@ public class Player {
     //Attack
     public void attackEnemy(Scanner scanner, Player enemy){
         int[] coordinates;
+
         do {
+            //Input coordinates
             System.out.println("\nWhere do you want attack?\n");
+            //Adapter that convert Input coordinates to Array Index's
             coordinates = coordinatesIndex(scanner.next());
 
+            //Coordinates Verifier
         } while (checkAttackPosition(coordinates, enemy));
     }
 
@@ -217,7 +217,7 @@ public class Player {
                 indexVerifier = coordinatesIndex[1] + vessel.getVesselSize();
                 currentPosition = ownBoard[coordinatesIndex[0]][coordinatesIndex[1]];
 
-                if (indexVerifier > 9){
+                if (indexVerifier > 9 && vessel.getVesselSize() > 1){
                     System.out.println("The vessel is too large\n");
                     return false;
                 }
@@ -228,6 +228,11 @@ public class Player {
                         System.out.println("You tried put a vessel over another vessel, that's not possible, sorry :(\n");
                         return false;
                     }
+
+                    if (vessel.getVesselSize() == 1){
+                        currentPosition = ownBoard[coordinatesIndex[0]][coordinatesIndex[1]];
+                        continue;
+                    }
                     currentPosition = ownBoard[coordinatesIndex[0]][coordinatesIndex[1] + i];
                 }
             }
@@ -235,7 +240,7 @@ public class Player {
                 indexVerifier = coordinatesIndex[0] + vessel.getVesselSize();
                 currentPosition = ownBoard[coordinatesIndex[0]][coordinatesIndex[1]];
 
-                if (indexVerifier > 9){
+                if (indexVerifier > 9 && vessel.getVesselSize() > 1){
                     System.out.println("The vessel is too large\n");
                     return false;
                 }
@@ -244,6 +249,11 @@ public class Player {
                     if (!currentPosition.equals(" ")){
                         System.out.println("You tried put a vessel over another vessel, that's not possible, sorry :(\n");
                         return false;
+                    }
+
+                    if (vessel.getVesselSize() == 1){
+                        currentPosition = ownBoard[coordinatesIndex[0]][coordinatesIndex[1]];
+                        continue;
                     }
                     currentPosition = ownBoard[coordinatesIndex[0] + i][coordinatesIndex[1]];
                 }
@@ -282,7 +292,7 @@ public class Player {
 
         //Check if the second letter is a number
         try {
-            int i = Integer.parseInt(coordinates[1]);
+            Integer.parseInt(coordinates[1]);
         }catch (NumberFormatException nfe) {
             System.out.println("\nNot Valid Input\n");
             return true;
@@ -324,10 +334,6 @@ public class Player {
         return name;
     }
 
-    public int getVictories() {
-        return victories;
-    }
-
     public ArrayList<Vessel> getVessels() {
         return vessels;
     }
@@ -340,28 +346,4 @@ public class Player {
         return tacticalBoard;
     }
 
-    //Setter's
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setVictories(int victories) {
-        this.victories = victories;
-    }
-
-    public void setVessels(ArrayList<Vessel> vessels) {
-        this.vessels = vessels;
-    }
-
-    public void setOwnBoard(String[][] ownBoard) {
-        this.ownBoard = ownBoard;
-    }
-
-    public void setTacticalBoard(String[][] tacticalBoard) {
-        this.tacticalBoard = tacticalBoard;
-    }
 }

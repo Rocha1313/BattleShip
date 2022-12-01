@@ -53,16 +53,15 @@ public class Match {
                         " ____  _     ____ ___  _ _____ ____    _____  _      ____       \n" +
                         "/  __\\/ \\   /  _ \\\\  \\///  __//  __\\  /__ __\\/ \\  /|/  _ \\  __  \n" +
                         "|  \\/|| |   | / \\| \\  / |  \\  |  \\/|    / \\  | |  ||| / \\|  \\/  \n" +
-                        "|  __/| |_/\\| |-|| / /  |  /_ |    /    | |  | |/\\||| \\_/|  __  " + victoriesP1 + "\n" +
+                        "|  __/| |_/\\| |-|| / /  |  /_ |    /    | |  | |/\\||| \\_/|  __  " + victoriesP2 + "\n" +
                         "\\_/   \\____/\\_/ \\|/_/   \\____\\\\_/\\_\\    \\_/  \\_/  \\|\\____/  \\/  \n" +
                         "                                                                ");
             }
             sc.nextLine();
+            sc.nextLine();
             clearScreen();
 
-            Player[] players = new Player[]{new Player("\033[44m", playerOneName), new Player("\033[41m", playerTwoName)};
-            players[0].setVictories(victoriesP1);
-            players[1].setVictories(victoriesP2);
+            Player[] players = new Player[]{new Player("\u001B[42m\u001B[30m", playerOneName), new Player("\u001B[43m\u001B[30m", playerTwoName)};
             System.out.println();
 
             //Print who's the player setting vessel's
@@ -82,7 +81,6 @@ public class Match {
                                                                                                                     \s""");
             }
             System.out.println(players[0].getName()+"\n");
-            sc.nextLine();
             setAllVessels(sc, players[0]);
             sc.nextLine();
             clearScreen();
@@ -106,6 +104,8 @@ public class Match {
             System.out.println(players[1].getName()+"\n");
             sc.nextLine();
             setAllVessels(sc, players[1]);
+            sc.nextLine();
+            clearScreen();
 
             match(sc, players);
         }while (quit(sc));
@@ -113,7 +113,7 @@ public class Match {
 
     //Print a lot of blank spaces
     private static void clearScreen(){
-        for(int i = 0; i < 100; i++){
+        for(int i = 0; i < 35; i++){
             System.out.println();
         }
     }
@@ -124,11 +124,23 @@ public class Match {
         do {
             previousNumberOfPieces = enemy.getNumberOfPieces();
             playerPlaying.attackEnemy(scanner, enemy);
-            System.out.println("Player playing is: "+playerPlaying.getName());
-            Board.printAllBoards(playerPlaying.getOwnBoard(), playerPlaying.getTacticalBoard());
+            //Print the player is playing
+            {
+                System.out.println(" ____  _     ____ ___  _ _____ ____    ____  _     ____ ___  _ _  _      _____      \n" +
+                        "/  __\\/ \\   /  _ \\\\  \\///  __//  __\\  /  __\\/ \\   /  _ \\\\  \\/// \\/ \\  /|/  __/  __  \n" +
+                        "|  \\/|| |   | / \\| \\  / |  \\  |  \\/|  |  \\/|| |   | / \\| \\  / | || |\\ ||| |  _  \\/    \n" + playerPlaying.getName() +
+                        "|  __/| |_/\\| |-|| / /  |  /_ |    /  |  __/| |_/\\| |-|| / /  | || | \\||| |_//  __  \n" +
+                        "\\_/   \\____/\\_/ \\|/_/   \\____\\\\_/\\_\\  \\_/   \\____/\\_/ \\|/_/   \\_/\\_/  \\|\\____\\  \\/  \n" +
+                        "                                                                                    ");
+            }
+            Board.printAllBoards(playerPlaying);
+
+            //Verify if enemy already died
             if(enemy.getNumberOfPieces() == 0){
                 return;
             }
+
+            //Verify if player that is playing miss the target
         } while (previousNumberOfPieces != enemy.getNumberOfPieces());
     }
 
@@ -138,28 +150,47 @@ public class Match {
 
         while (true) {
             if (playerPlay == 0) {
-                System.out.println("Player playing is: "+players[0].getName());
-                Board.printAllBoards(players[0].getOwnBoard(), players[0].getTacticalBoard());
+                //Print the player is playing
+                {
+                    System.out.println(" ____  _     ____ ___  _ _____ ____    ____  _     ____ ___  _ _  _      _____      \n" +
+                            "/  __\\/ \\   /  _ \\\\  \\///  __//  __\\  /  __\\/ \\   /  _ \\\\  \\/// \\/ \\  /|/  __/  __  \n" +
+                            "|  \\/|| |   | / \\| \\  / |  \\  |  \\/|  |  \\/|| |   | / \\| \\  / | || |\\ ||| |  _  \\/    \n" + players[0].getName() +
+                            "|  __/| |_/\\| |-|| / /  |  /_ |    /  |  __/| |_/\\| |-|| / /  | || | \\||| |_//  __  \n" +
+                            "\\_/   \\____/\\_/ \\|/_/   \\____\\\\_/\\_\\  \\_/   \\____/\\_/ \\|/_/   \\_/\\_/  \\|\\____\\  \\/  \n" +
+                            "                                                                                    ");
+                }
+                scanner.nextLine();
+                Board.printAllBoards(players[0]);
                 playerPlay(scanner, players[0], players[1]);
-                playerPlay = 1;
             }
+
+            //Verify if player One Win
             if(players[1].getNumberOfPieces() == 0){
                 whoWin(players[0]);
                 victoriesP1++;
                 return;
             }
 
-            System.out.println("Player playing is: "+players[1].getName());
-            Board.printAllBoards(players[1].getOwnBoard(), players[1].getTacticalBoard());
+            //Print the player is playing
+            {
+                System.out.println(" ____  _     ____ ___  _ _____ ____    ____  _     ____ ___  _ _  _      _____      \n" +
+                        "/  __\\/ \\   /  _ \\\\  \\///  __//  __\\  /  __\\/ \\   /  _ \\\\  \\/// \\/ \\  /|/  __/  __  \n" +
+                        "|  \\/|| |   | / \\| \\  / |  \\  |  \\/|  |  \\/|| |   | / \\| \\  / | || |\\ ||| |  _  \\/    \n" + players[1].getName() +
+                        "|  __/| |_/\\| |-|| / /  |  /_ |    /  |  __/| |_/\\| |-|| / /  | || | \\||| |_//  __  \n" +
+                        "\\_/   \\____/\\_/ \\|/_/   \\____\\\\_/\\_\\  \\_/   \\____/\\_/ \\|/_/   \\_/\\_/  \\|\\____\\  \\/  \n" +
+                        "                                                                                    ");
+            }
+            scanner.nextLine();
+            Board.printAllBoards(players[1]);
             playerPlay(scanner, players[1], players[0]);
             playerPlay = 0;
+
+            //Verify if player Two Win
             if (players[0].getNumberOfPieces() == 0){
                 whoWin(players[1]);
                 victoriesP2++;
                 return;
             }
-
-
         }
     }
 
@@ -181,7 +212,6 @@ public class Match {
 
     //Set all Vessels
     private static void setAllVessels(Scanner scanner, Player player){
-        String input;
         int index = 0;
 
         while (true) {
@@ -191,9 +221,10 @@ public class Match {
             }
             System.out.println();
 
+            Board.printPlayerBoard(player);
             player.setVessel(scanner, player.getVessels().get(index));
             if (index == (player.getVessels().size() - 1)){
-                Board.printAllBoards(player.getOwnBoard(), player.getTacticalBoard());
+                Board.printAllBoards(player);
                 scanner.nextLine();
                 return;
             }

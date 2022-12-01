@@ -2,57 +2,126 @@ package Game;
 
 class Board {
 
-    static void printPlayerBoard(String[][] Board){
+    public static final String RESET = "\033[0m";
+    public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
+    public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m";
+    public static final String ANSI_WHITE_BACKGROUND = "\033[0;107m";   // WHITE
+    public static final String ANSI_BLACK = "\u001B[30m";
+
+    static void printPlayerBoard(Player player){
+        String[][] position = new String[10][10];
+
+        for (int i = 0 ; i < position.length; i++){
+            for (int f = 0; f < position[i].length; f++){
+                if (player.getOwnBoard()[i][f].equals(" ")){
+                    position[i][f] = ANSI_BLUE_BACKGROUND + " " + RESET;
+                    continue;
+                }
+
+                if (player.getOwnBoard()[i][f].equals("W")){
+                    position[i][f] = ANSI_WHITE_BACKGROUND + ANSI_BLACK + " " + RESET;
+                    continue;
+                }
+
+                if (player.getOwnBoard()[i][f].equals("O")){
+                    position[i][f] = player.getColor() + " " + RESET;
+                    continue;
+                }
+
+                position[i][f] = ANSI_RED_BACKGROUND + ANSI_BLACK + " " + RESET;
+            }
+        }
         System.out.println();
         System.out.print("      A   B   C   D   E   F   G   H   I   J \n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  1 | "+Board[0][0]+" | "+Board[0][1]+" | "+Board[0][2]+" | "+Board[0][3]+" | "+Board[0][4]+" | "+Board[0][5]+" | "+Board[0][6]+" | "+Board[0][7]+" | "+Board[0][8]+" | "+Board[0][9]+" |\n");
+        System.out.print("  1 | "+position[0][0]+" | "+position[0][1]+" | "+position[0][2]+" | "+position[0][3]+" | "+position[0][4]+" | "+position[0][5]+" | "+position[0][6]+" | "+position[0][7]+" | "+position[0][8]+" | "+position[0][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  2 | "+Board[1][0]+" | "+Board[1][1]+" | "+Board[1][2]+" | "+Board[1][3]+" | "+Board[1][4]+" | "+Board[1][5]+" | "+Board[1][6]+" | "+Board[1][7]+" | "+Board[1][8]+" | "+Board[1][9]+" |\n");
+        System.out.print("  2 | "+position[1][0]+" | "+position[1][1]+" | "+position[1][2]+" | "+position[1][3]+" | "+position[1][4]+" | "+position[1][5]+" | "+position[1][6]+" | "+position[1][7]+" | "+position[1][8]+" | "+position[1][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  3 | "+Board[2][0]+" | "+Board[2][1]+" | "+Board[2][2]+" | "+Board[2][3]+" | "+Board[2][4]+" | "+Board[2][5]+" | "+Board[2][6]+" | "+Board[2][7]+" | "+Board[2][8]+" | "+Board[2][9]+" |\n");
+        System.out.print("  3 | "+position[2][0]+" | "+position[2][1]+" | "+position[2][2]+" | "+position[2][3]+" | "+position[2][4]+" | "+position[2][5]+" | "+position[2][6]+" | "+position[2][7]+" | "+position[2][8]+" | "+position[2][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  4 | "+Board[3][0]+" | "+Board[3][1]+" | "+Board[3][2]+" | "+Board[3][3]+" | "+Board[3][4]+" | "+Board[3][5]+" | "+Board[3][6]+" | "+Board[3][7]+" | "+Board[3][8]+" | "+Board[3][9]+" |\n");
+        System.out.print("  4 | "+position[3][0]+" | "+position[3][1]+" | "+position[3][2]+" | "+position[3][3]+" | "+position[3][4]+" | "+position[3][5]+" | "+position[3][6]+" | "+position[3][7]+" | "+position[3][8]+" | "+position[3][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  5 | "+Board[4][0]+" | "+Board[4][1]+" | "+Board[4][2]+" | "+Board[4][3]+" | "+Board[4][4]+" | "+Board[4][5]+" | "+Board[4][6]+" | "+Board[4][7]+" | "+Board[4][8]+" | "+Board[4][9]+" |\n");
+        System.out.print("  5 | "+position[4][0]+" | "+position[4][1]+" | "+position[4][2]+" | "+position[4][3]+" | "+position[4][4]+" | "+position[4][5]+" | "+position[4][6]+" | "+position[4][7]+" | "+position[4][8]+" | "+position[4][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  6 | "+Board[5][0]+" | "+Board[5][1]+" | "+Board[5][2]+" | "+Board[5][3]+" | "+Board[5][4]+" | "+Board[5][5]+" | "+Board[5][6]+" | "+Board[5][7]+" | "+Board[5][8]+" | "+Board[5][9]+" |\n");
+        System.out.print("  6 | "+position[5][0]+" | "+position[5][1]+" | "+position[5][2]+" | "+position[5][3]+" | "+position[5][4]+" | "+position[5][5]+" | "+position[5][6]+" | "+position[5][7]+" | "+position[5][8]+" | "+position[5][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  7 | "+Board[6][0]+" | "+Board[6][1]+" | "+Board[6][2]+" | "+Board[6][3]+" | "+Board[6][4]+" | "+Board[6][5]+" | "+Board[6][6]+" | "+Board[6][7]+" | "+Board[6][8]+" | "+Board[6][9]+" |\n");
+        System.out.print("  7 | "+position[6][0]+" | "+position[6][1]+" | "+position[6][2]+" | "+position[6][3]+" | "+position[6][4]+" | "+position[6][5]+" | "+position[6][6]+" | "+position[6][7]+" | "+position[6][8]+" | "+position[6][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  8 | "+Board[7][0]+" | "+Board[7][1]+" | "+Board[7][2]+" | "+Board[7][3]+" | "+Board[7][4]+" | "+Board[7][5]+" | "+Board[7][6]+" | "+Board[7][7]+" | "+Board[7][8]+" | "+Board[7][9]+" |\n");
+        System.out.print("  8 | "+position[7][0]+" | "+position[7][1]+" | "+position[7][2]+" | "+position[7][3]+" | "+position[7][4]+" | "+position[7][5]+" | "+position[7][6]+" | "+position[7][7]+" | "+position[7][8]+" | "+position[7][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  9 | "+Board[8][0]+" | "+Board[8][1]+" | "+Board[8][2]+" | "+Board[8][3]+" | "+Board[8][4]+" | "+Board[8][5]+" | "+Board[8][6]+" | "+Board[8][7]+" | "+Board[8][8]+" | "+Board[8][9]+" |\n");
+        System.out.print("  9 | "+position[8][0]+" | "+position[8][1]+" | "+position[8][2]+" | "+position[8][3]+" | "+position[8][4]+" | "+position[8][5]+" | "+position[8][6]+" | "+position[8][7]+" | "+position[8][8]+" | "+position[8][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print(" 10 | "+Board[9][0]+" | "+Board[9][1]+" | "+Board[9][2]+" | "+Board[9][3]+" | "+Board[9][4]+" | "+Board[9][5]+" | "+Board[9][6]+" | "+Board[9][7]+" | "+Board[9][8]+" | "+Board[9][9]+" |\n");
+        System.out.print(" 10 | "+position[9][0]+" | "+position[9][1]+" | "+position[9][2]+" | "+position[9][3]+" | "+position[9][4]+" | "+position[9][5]+" | "+position[9][6]+" | "+position[9][7]+" | "+position[9][8]+" | "+position[9][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|\n");
         System.out.println();
     }
 
 
-    static void printAllBoards(String[][] playerBoard, String[][] tacticalBoard){
+
+    static void printAllBoards(Player player){
+        String[][] position = new String[10][10];
+        String[][] attackPosition = new String[10][10];
+
+        for (int i = 0 ; i < position.length; i++){
+            for (int f = 0; f < position[i].length; f++){
+                if (player.getOwnBoard()[i][f].equals(" ")){
+                    position[i][f] = ANSI_BLUE_BACKGROUND + " " + RESET;
+                    continue;
+                }
+
+                if (player.getOwnBoard()[i][f].equals("W")){
+                    position[i][f] = ANSI_WHITE_BACKGROUND + ANSI_BLACK + " " + RESET;
+                    continue;
+                }
+
+                if (player.getOwnBoard()[i][f].equals("O")){
+                    position[i][f] = player.getColor() + " " + RESET;
+                    continue;
+                }
+
+                position[i][f] = ANSI_RED_BACKGROUND + ANSI_BLACK + " " + RESET;
+            }
+        }
+
+        for (int i = 0 ; i < attackPosition.length; i++){
+            for (int f = 0; f < attackPosition[i].length; f++){
+
+                if (player.getTacticalBoard()[i][f].equals(" ")){
+                    attackPosition[i][f] = ANSI_BLUE_BACKGROUND + " " + RESET;
+                    continue;
+                }
+
+                if (player.getTacticalBoard()[i][f].equals("W")){
+                    attackPosition[i][f] = ANSI_WHITE_BACKGROUND + " " + RESET;
+                    continue;
+                }
+
+                attackPosition[i][f] = ANSI_RED_BACKGROUND + ANSI_BLACK + " " + RESET;
+            }
+        }
         System.out.println();
         System.out.print("      A   B   C   D   E   F   G   H   I   J                         A   B   C   D   E   F   G   H   I   J \n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|                     |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  1 | "+playerBoard[0][0]+" | "+playerBoard[0][1]+" | "+playerBoard[0][2]+" | "+playerBoard[0][3]+" | "+playerBoard[0][4]+" | "+playerBoard[0][5]+" | "+playerBoard[0][6]+" | "+playerBoard[0][7]+" | "+playerBoard[0][8]+" | "+playerBoard[0][9]+" |                   1 | "+tacticalBoard[0][0]+" | "+tacticalBoard[0][1]+" | "+tacticalBoard[0][2]+" | "+tacticalBoard[0][3]+" | "+tacticalBoard[0][4]+" | "+tacticalBoard[0][5]+" | "+tacticalBoard[0][6]+" | "+tacticalBoard[0][7]+" | "+tacticalBoard[0][8]+" | "+tacticalBoard[0][9]+" |\n");
+        System.out.print("  1 | "+position[0][0]+" | "+position[0][1]+" | "+position[0][2]+" | "+position[0][3]+" | "+position[0][4]+" | "+position[0][5]+" | "+position[0][6]+" | "+position[0][7]+" | "+position[0][8]+" | "+position[0][9]+" |                   1 | "+attackPosition[0][0]+" | "+attackPosition[0][1]+" | "+attackPosition[0][2]+" | "+attackPosition[0][3]+" | "+attackPosition[0][4]+" | "+attackPosition[0][5]+" | "+attackPosition[0][6]+" | "+attackPosition[0][7]+" | "+attackPosition[0][8]+" | "+attackPosition[0][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|                     |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  2 | "+playerBoard[1][0]+" | "+playerBoard[1][1]+" | "+playerBoard[1][2]+" | "+playerBoard[1][3]+" | "+playerBoard[1][4]+" | "+playerBoard[1][5]+" | "+playerBoard[1][6]+" | "+playerBoard[1][7]+" | "+playerBoard[1][8]+" | "+playerBoard[1][9]+" |                   2 | "+tacticalBoard[1][0]+" | "+tacticalBoard[1][1]+" | "+tacticalBoard[1][2]+" | "+tacticalBoard[1][3]+" | "+tacticalBoard[1][4]+" | "+tacticalBoard[1][5]+" | "+tacticalBoard[1][6]+" | "+tacticalBoard[1][7]+" | "+tacticalBoard[1][8]+" | "+tacticalBoard[1][9]+" |\n");
+        System.out.print("  2 | "+position[1][0]+" | "+position[1][1]+" | "+position[1][2]+" | "+position[1][3]+" | "+position[1][4]+" | "+position[1][5]+" | "+position[1][6]+" | "+position[1][7]+" | "+position[1][8]+" | "+position[1][9]+" |                   2 | "+attackPosition[1][0]+" | "+attackPosition[1][1]+" | "+attackPosition[1][2]+" | "+attackPosition[1][3]+" | "+attackPosition[1][4]+" | "+attackPosition[1][5]+" | "+attackPosition[1][6]+" | "+attackPosition[1][7]+" | "+attackPosition[1][8]+" | "+attackPosition[1][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|                     |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  3 | "+playerBoard[2][0]+" | "+playerBoard[2][1]+" | "+playerBoard[2][2]+" | "+playerBoard[2][3]+" | "+playerBoard[2][4]+" | "+playerBoard[2][5]+" | "+playerBoard[2][6]+" | "+playerBoard[2][7]+" | "+playerBoard[2][8]+" | "+playerBoard[2][9]+" |                   3 | "+tacticalBoard[2][0]+" | "+tacticalBoard[2][1]+" | "+tacticalBoard[2][2]+" | "+tacticalBoard[2][3]+" | "+tacticalBoard[2][4]+" | "+tacticalBoard[2][5]+" | "+tacticalBoard[2][6]+" | "+tacticalBoard[2][7]+" | "+tacticalBoard[2][8]+" | "+tacticalBoard[2][9]+" |\n");
+        System.out.print("  3 | "+position[2][0]+" | "+position[2][1]+" | "+position[2][2]+" | "+position[2][3]+" | "+position[2][4]+" | "+position[2][5]+" | "+position[2][6]+" | "+position[2][7]+" | "+position[2][8]+" | "+position[2][9]+" |                   3 | "+attackPosition[2][0]+" | "+attackPosition[2][1]+" | "+attackPosition[2][2]+" | "+attackPosition[2][3]+" | "+attackPosition[2][4]+" | "+attackPosition[2][5]+" | "+attackPosition[2][6]+" | "+attackPosition[2][7]+" | "+attackPosition[2][8]+" | "+attackPosition[2][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|                     |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  4 | "+playerBoard[3][0]+" | "+playerBoard[3][1]+" | "+playerBoard[3][2]+" | "+playerBoard[3][3]+" | "+playerBoard[3][4]+" | "+playerBoard[3][5]+" | "+playerBoard[3][6]+" | "+playerBoard[3][7]+" | "+playerBoard[3][8]+" | "+playerBoard[3][9]+" |                   4 | "+tacticalBoard[3][0]+" | "+tacticalBoard[3][1]+" | "+tacticalBoard[3][2]+" | "+tacticalBoard[3][3]+" | "+tacticalBoard[3][4]+" | "+tacticalBoard[3][5]+" | "+tacticalBoard[3][6]+" | "+tacticalBoard[3][7]+" | "+tacticalBoard[3][8]+" | "+tacticalBoard[3][9]+" |\n");
+        System.out.print("  4 | "+position[3][0]+" | "+position[3][1]+" | "+position[3][2]+" | "+position[3][3]+" | "+position[3][4]+" | "+position[3][5]+" | "+position[3][6]+" | "+position[3][7]+" | "+position[3][8]+" | "+position[3][9]+" |                   4 | "+attackPosition[3][0]+" | "+attackPosition[3][1]+" | "+attackPosition[3][2]+" | "+attackPosition[3][3]+" | "+attackPosition[3][4]+" | "+attackPosition[3][5]+" | "+attackPosition[3][6]+" | "+attackPosition[3][7]+" | "+attackPosition[3][8]+" | "+attackPosition[3][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|                     |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  5 | "+playerBoard[4][0]+" | "+playerBoard[4][1]+" | "+playerBoard[4][2]+" | "+playerBoard[4][3]+" | "+playerBoard[4][4]+" | "+playerBoard[4][5]+" | "+playerBoard[4][6]+" | "+playerBoard[4][7]+" | "+playerBoard[4][8]+" | "+playerBoard[4][9]+" |                   5 | "+tacticalBoard[4][0]+" | "+tacticalBoard[4][1]+" | "+tacticalBoard[4][2]+" | "+tacticalBoard[4][3]+" | "+tacticalBoard[4][4]+" | "+tacticalBoard[4][5]+" | "+tacticalBoard[4][6]+" | "+tacticalBoard[4][7]+" | "+tacticalBoard[4][8]+" | "+tacticalBoard[4][9]+" |\n");
+        System.out.print("  5 | "+position[4][0]+" | "+position[4][1]+" | "+position[4][2]+" | "+position[4][3]+" | "+position[4][4]+" | "+position[4][5]+" | "+position[4][6]+" | "+position[4][7]+" | "+position[4][8]+" | "+position[4][9]+" |                   5 | "+attackPosition[4][0]+" | "+attackPosition[4][1]+" | "+attackPosition[4][2]+" | "+attackPosition[4][3]+" | "+attackPosition[4][4]+" | "+attackPosition[4][5]+" | "+attackPosition[4][6]+" | "+attackPosition[4][7]+" | "+attackPosition[4][8]+" | "+attackPosition[4][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|                     |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  6 | "+playerBoard[5][0]+" | "+playerBoard[5][1]+" | "+playerBoard[5][2]+" | "+playerBoard[5][3]+" | "+playerBoard[5][4]+" | "+playerBoard[5][5]+" | "+playerBoard[5][6]+" | "+playerBoard[5][7]+" | "+playerBoard[5][8]+" | "+playerBoard[5][9]+" |                   6 | "+tacticalBoard[5][0]+" | "+tacticalBoard[5][1]+" | "+tacticalBoard[5][2]+" | "+tacticalBoard[5][3]+" | "+tacticalBoard[5][4]+" | "+tacticalBoard[5][5]+" | "+tacticalBoard[5][6]+" | "+tacticalBoard[5][7]+" | "+tacticalBoard[5][8]+" | "+tacticalBoard[5][9]+" |\n");
+        System.out.print("  6 | "+position[5][0]+" | "+position[5][1]+" | "+position[5][2]+" | "+position[5][3]+" | "+position[5][4]+" | "+position[5][5]+" | "+position[5][6]+" | "+position[5][7]+" | "+position[5][8]+" | "+position[5][9]+" |                   6 | "+attackPosition[5][0]+" | "+attackPosition[5][1]+" | "+attackPosition[5][2]+" | "+attackPosition[5][3]+" | "+attackPosition[5][4]+" | "+attackPosition[5][5]+" | "+attackPosition[5][6]+" | "+attackPosition[5][7]+" | "+attackPosition[5][8]+" | "+attackPosition[5][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|                     |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  7 | "+playerBoard[6][0]+" | "+playerBoard[6][1]+" | "+playerBoard[6][2]+" | "+playerBoard[6][3]+" | "+playerBoard[6][4]+" | "+playerBoard[6][5]+" | "+playerBoard[6][6]+" | "+playerBoard[6][7]+" | "+playerBoard[6][8]+" | "+playerBoard[6][9]+" |                   7 | "+tacticalBoard[6][0]+" | "+tacticalBoard[6][1]+" | "+tacticalBoard[6][2]+" | "+tacticalBoard[6][3]+" | "+tacticalBoard[6][4]+" | "+tacticalBoard[6][5]+" | "+tacticalBoard[6][6]+" | "+tacticalBoard[6][7]+" | "+tacticalBoard[6][8]+" | "+tacticalBoard[6][9]+" |\n");
+        System.out.print("  7 | "+position[6][0]+" | "+position[6][1]+" | "+position[6][2]+" | "+position[6][3]+" | "+position[6][4]+" | "+position[6][5]+" | "+position[6][6]+" | "+position[6][7]+" | "+position[6][8]+" | "+position[6][9]+" |                   7 | "+attackPosition[6][0]+" | "+attackPosition[6][1]+" | "+attackPosition[6][2]+" | "+attackPosition[6][3]+" | "+attackPosition[6][4]+" | "+attackPosition[6][5]+" | "+attackPosition[6][6]+" | "+attackPosition[6][7]+" | "+attackPosition[6][8]+" | "+attackPosition[6][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|                     |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  8 | "+playerBoard[7][0]+" | "+playerBoard[7][1]+" | "+playerBoard[7][2]+" | "+playerBoard[7][3]+" | "+playerBoard[7][4]+" | "+playerBoard[7][5]+" | "+playerBoard[7][6]+" | "+playerBoard[7][7]+" | "+playerBoard[7][8]+" | "+playerBoard[7][9]+" |                   8 | "+tacticalBoard[7][0]+" | "+tacticalBoard[7][1]+" | "+tacticalBoard[7][2]+" | "+tacticalBoard[7][3]+" | "+tacticalBoard[7][4]+" | "+tacticalBoard[7][5]+" | "+tacticalBoard[7][6]+" | "+tacticalBoard[7][7]+" | "+tacticalBoard[7][8]+" | "+tacticalBoard[7][9]+" |\n");
+        System.out.print("  8 | "+position[7][0]+" | "+position[7][1]+" | "+position[7][2]+" | "+position[7][3]+" | "+position[7][4]+" | "+position[7][5]+" | "+position[7][6]+" | "+position[7][7]+" | "+position[7][8]+" | "+position[7][9]+" |                   8 | "+attackPosition[7][0]+" | "+attackPosition[7][1]+" | "+attackPosition[7][2]+" | "+attackPosition[7][3]+" | "+attackPosition[7][4]+" | "+attackPosition[7][5]+" | "+attackPosition[7][6]+" | "+attackPosition[7][7]+" | "+attackPosition[7][8]+" | "+attackPosition[7][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|                     |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print("  9 | "+playerBoard[8][0]+" | "+playerBoard[8][1]+" | "+playerBoard[8][2]+" | "+playerBoard[8][3]+" | "+playerBoard[8][4]+" | "+playerBoard[8][5]+" | "+playerBoard[8][6]+" | "+playerBoard[8][7]+" | "+playerBoard[8][8]+" | "+playerBoard[8][9]+" |                   9 | "+tacticalBoard[8][0]+" | "+tacticalBoard[8][1]+" | "+tacticalBoard[8][2]+" | "+tacticalBoard[8][3]+" | "+tacticalBoard[8][4]+" | "+tacticalBoard[8][5]+" | "+tacticalBoard[8][6]+" | "+tacticalBoard[8][7]+" | "+tacticalBoard[8][8]+" | "+tacticalBoard[8][9]+" |\n");
+        System.out.print("  9 | "+position[8][0]+" | "+position[8][1]+" | "+position[8][2]+" | "+position[8][3]+" | "+position[8][4]+" | "+position[8][5]+" | "+position[8][6]+" | "+position[8][7]+" | "+position[8][8]+" | "+position[8][9]+" |                   9 | "+attackPosition[8][0]+" | "+attackPosition[8][1]+" | "+attackPosition[8][2]+" | "+attackPosition[8][3]+" | "+attackPosition[8][4]+" | "+attackPosition[8][5]+" | "+attackPosition[8][6]+" | "+attackPosition[8][7]+" | "+attackPosition[8][8]+" | "+attackPosition[8][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|                     |---|---|---|---|---|---|---|---|---|---|\n");
-        System.out.print(" 10 | "+playerBoard[9][0]+" | "+playerBoard[9][1]+" | "+playerBoard[9][2]+" | "+playerBoard[9][3]+" | "+playerBoard[9][4]+" | "+playerBoard[9][5]+" | "+playerBoard[9][6]+" | "+playerBoard[9][7]+" | "+playerBoard[9][8]+" | "+playerBoard[9][9]+" |                  10 | "+tacticalBoard[9][0]+" | "+tacticalBoard[9][1]+" | "+tacticalBoard[9][2]+" | "+tacticalBoard[9][3]+" | "+tacticalBoard[9][4]+" | "+tacticalBoard[9][5]+" | "+tacticalBoard[9][6]+" | "+tacticalBoard[9][7]+" | "+tacticalBoard[9][8]+" | "+tacticalBoard[9][9]+" |\n");
+        System.out.print(" 10 | "+position[9][0]+" | "+position[9][1]+" | "+position[9][2]+" | "+position[9][3]+" | "+position[9][4]+" | "+position[9][5]+" | "+position[9][6]+" | "+position[9][7]+" | "+position[9][8]+" | "+position[9][9]+" |                  10 | "+attackPosition[9][0]+" | "+attackPosition[9][1]+" | "+attackPosition[9][2]+" | "+attackPosition[9][3]+" | "+attackPosition[9][4]+" | "+attackPosition[9][5]+" | "+attackPosition[9][6]+" | "+attackPosition[9][7]+" | "+attackPosition[9][8]+" | "+attackPosition[9][9]+" |\n");
         System.out.print("    |---|---|---|---|---|---|---|---|---|---|                     |---|---|---|---|---|---|---|---|---|---|\n");
         System.out.println();
     }
